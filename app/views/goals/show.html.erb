@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @goal.name %>
+</p>
+
+<p>
+  <b>Frequency:</b>
+  <%= @goal.frequency %>
+</p>
+
+<p>
+  <b>Number of Logs:</b>
+  <%= @goal.logs.size %>
+</p>
+
+<%= link_to 'Edit', edit_goal_path(@goal) %> |
+<%= link_to 'Back', goals_path %>
+
+<% @goal.recent_logs.each do |log| %>
+  <p>
+  <%= log.activity_date %>
+  <%= log.description %>
+  </p>
+<% end %>
