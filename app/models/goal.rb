@@ -1,12 +1,25 @@
 class Goal < ActiveRecord::Base
-  attr_accessible :frequency, :name
+  attr_accessible :frequency, :name, :count
   has_many :logs
 
-  def number_of_logs
-    self.logs.size
-  end
-  def recent_logs
+  def last_7_days_logs
     self.logs.where('activity_date >= ?', 1.week.ago).order('activity_date desc').limit(5)
-    # Log.where
+  end
+
+  def percent_goal_completed
+    if self.weekly_frequency == nil
+      return 0
+    end
+    completed = self.last_7_days_logs.size || 0
+    (completed.to_f / self.weekly_frequency) * 100
+  end
+
+  def weekly_frequency
+    if self.frequency == 'Daily'
+      weekly_frequency = self.count * 7
+    else
+      weekly_frequency = self.count
+    end
+    weekly_frequency
   end
 end
