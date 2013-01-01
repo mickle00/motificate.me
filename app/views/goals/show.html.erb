@@ -16,7 +16,8 @@
 </p>
 
 <%= link_to 'Edit', edit_goal_path(@goal) %> |
-<%= link_to 'Back', goals_path %>
+<%= link_to 'Back', goals_path %> |
+<%= link_to 'Add Log', new_log_path(:goal => @goal.id) %>
 
 <% @goal.recent_logs.each do |log| %>
   <p>

@@ -25,11 +25,7 @@ class LogsController < ApplicationController
   # GET /logs/new.json
   def new
     @log = Log.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @log }
-    end
+    @log['goal'] = params[:goal]
   end
 
   # GET /logs/1/edit
@@ -40,9 +36,8 @@ class LogsController < ApplicationController
   # POST /logs
   # POST /logs.json
   def create
-    @goal = Goal.find(params[:log]['goal'])
-    # @log = Log.new(params[:log])
-    @log = @goal.logs.build(description: params[:log]['description'])
+    @log = Goal.find(params[:log][:goal]).logs.build(description: params[:log][:description],
+                                                      activity_date: Date.today)
     respond_to do |format|
       if @log.save
         format.html { redirect_to @log, notice: 'Log was successfully created.' }
