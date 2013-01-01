@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h1>  <%= @goal.name %> <%= number_to_percentage(@goal.percent_goal_completed, :precision => 2) %></h1> 
+<h1>  <%= @goal.name %> [<%= number_to_percentage(@goal.percent_goal_completed, :precision => 2) %>]</h1> 
 <h2>[<%= pluralize(@goal.count, 'time') %>  <%= @goal.frequency.downcase %>] </h2>
 
 <span style="float: right">
