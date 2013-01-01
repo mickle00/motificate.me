@@ -27,15 +27,17 @@
     <th>Week</th>
     <th>Completed</th>
   </thead>
-<%# <% @goal.recent_logs.each do |log| %1> %>
-<%#   <tr> %>
-<%#     <td><%= log.activity_date %1></td> %>
-<%#     <td><%= link_to log.description, edit_log_path(log) %1></td> %>
-<%#   </tr> %>
-<%# <% end %1> %>
-    <tr style="font-weight: bold">
-      <td>Total</td>
-      <td>100%</td>
-    </tr>
+  <% (2.months.ago.to_date..Date.today).to_a.reverse.each do |report_date| %>
+    <% if report_date == report_date.beginning_of_week %>
+      <tr>
+        <td><%= report_date %> - <%= report_date.end_of_week %></td>
+        <td><%= number_to_percentage((@weekly_logs.fetch(report_date, []).size.to_f / @goal.weekly_frequency) * 100, :precision => 2) %></td>
+      </tr>
+    <% end %>
+  <% end %>
+    <%# <tr style="font-weight: bold"> %>
+    <%#   <td>Total</td> %>
+    <%#   <td>100%</td> %>
+    <%# </tr> %>
 </table>
 

@@ -1,3 +1,4 @@
+require 'goals_by_week.rb'
 class GoalsController < ApplicationController
   def index
     @goals = Goal.all
@@ -5,6 +6,7 @@ class GoalsController < ApplicationController
 
   def show
     @goal = Goal.find(params[:id])
+    @weekly_logs = GoalsByWeek.new(@goal).weekly_logs
   end
 
   def new
