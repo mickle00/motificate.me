@@ -6,7 +6,7 @@ class Goal < ActiveRecord::Base
     self.logs.size
   end
   def recent_logs
-    self.logs.order('activity_date desc').limit(5)
+    self.logs.where('activity_date >= ?', 1.week.ago).order('activity_date desc').limit(5)
     # Log.where
   end
 end
