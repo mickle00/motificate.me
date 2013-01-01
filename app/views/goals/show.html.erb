@@ -1,27 +1,23 @@
 <p id="notice"><%= notice %></p>
+<h1>  <%= @goal.name %> (<%= @goal.logs.size %>) </h1> 
+<h2>[ <%= @goal.frequency %>] </h2>
 
-<p>
-  <b>Name:</b>
-  <%= @goal.name %>
-</p>
-
-<p>
-  <b>Frequency:</b>
-  <%= @goal.frequency %>
-</p>
-
-<p>
-  <b>Number of Logs:</b>
-  <%= @goal.logs.size %>
-</p>
-
-<%= link_to 'Edit', edit_goal_path(@goal) %> |
-<%= link_to 'Back', goals_path %> |
-<%= link_to 'Add Log', new_log_path(:goal => @goal.id) %>
-
+<h3>Last 7 Days</h3>
+<table>
+  <thead>
+    <th>Activity Date</th>
+    <th>Description</th>
+  </thead>
 <% @goal.recent_logs.each do |log| %>
-  <p>
-  <%= log.activity_date %>
-  <%= log.description %>
-  </p>
+  <tr>
+    <td><%= log.activity_date %></td>
+    <td><%= link_to log.description, edit_log_path(log) %></td>
+  </tr>
 <% end %>
+</table>
+
+<span style="float: right">
+  <%= link_to 'Edit', edit_goal_path(@goal), class: "btn" %>
+  <%= link_to 'Back', goals_path, class: "btn" %> 
+  <%= link_to 'Add Log', new_log_path(:goal => @goal.id), class: "btn" %>
+</span>
