@@ -11,10 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :goal %><br />
-    <%= f.text_field :goal %>
-  </div>
+  <%= f.hidden_field :goal, :value => @log.goal_id %>
+
+  <%# <div class="field"> %>
+  <%#   <%= f.label :goal %1><br /> %>
+  <%#   <%= f.text_field :goal %1> %>
+  <%# </div> %>
+
   <div class="field" style="width: 100%">
     <%= f.label :description %><br />
     <%= f.text_area :description %>

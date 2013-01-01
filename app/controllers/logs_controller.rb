@@ -25,7 +25,7 @@ class LogsController < ApplicationController
   # GET /logs/new.json
   def new
     @log = Log.new
-    @log['goal'] = params[:goal]
+    @log['goal_id'] = params[:goal]
   end
 
   # GET /logs/1/edit
