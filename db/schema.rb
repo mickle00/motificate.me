@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130101042402) do
+ActiveRecord::Schema.define(:version => 20130108020800) do
 
   create_table "goals", :force => true do |t|
     t.string   "name"
@@ -30,5 +30,14 @@ ActiveRecord::Schema.define(:version => 20130101042402) do
   end
 
   add_index "logs", ["goal_id"], :name => "index_logs_on_goal_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end

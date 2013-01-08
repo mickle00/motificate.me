@@ -1,4 +1,6 @@
 Goals::Application.routes.draw do
+  get "users/new"
+
   resources :logs
   resources :goals
   root :to => 'goals#index'

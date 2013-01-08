@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: logs
+#
+#  id            :integer          not null, primary key
+#  goal_id       :integer
+#  description   :text
+#  activity_date :date
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
