@@ -9,6 +9,7 @@ gem 'bcrypt-ruby', '3.0.1'
 
 group :production do
   gem 'pg'
+  gem 'newrelic_rpm'
 end
 
 group :development, :test do
