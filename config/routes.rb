@@ -1,9 +1,10 @@
 Goals::Application.routes.draw do
-  get "users/new"
-
   resources :logs
   resources :goals
+  resources :users
   root :to => 'goals#index'
+
+  match '/signup',  to: 'users#new'
 
 
   # The priority is based upon order of creation:
