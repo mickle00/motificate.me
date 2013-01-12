@@ -2,9 +2,12 @@ Goals::Application.routes.draw do
   resources :logs
   resources :goals
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   root :to => 'goals#index'
 
   match '/signup',  to: 'users#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout',  to: 'session#destroy'
 
 
   # The priority is based upon order of creation:
