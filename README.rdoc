@@ -1,1 +1,142 @@
 Source code for http://www.motificate.me
+
+TODO:
+  Infrastructure:
+    Insprirational Quote/Picture
+      Sidebar/Separate Page
+    Goal Description
+    GoalTypes/Categories/Tags
+    Team Goals/Communities
+      Cross Country/Running Logs
+    Goal Frequency & Logging
+      Tag pictures to a log?
+        weight loss/gain?
+      Default settings
+        Easy/Moderate/Hard/Extreme/Custom
+      Idea of a "met" goal
+        Lose 50 pounds
+        Save $50k for a house/car/etc
+        Get out of debt
+        Get a job
+      Continuos Duration: Weekly/Days 
+        Boolean: With/Without (quitting something)
+        Distance: Miles
+        Physical: Gain/Lose Weight
+        Amount of Time: x minutes/day
+        Count of Activity:
+          Read/Write # of Pages/Books
+          # of Uploads/Pictures
+          # of Code Commits
+          $$ Saved/Invested
+    Search
+      By User
+      For a Goal
+    Pagination
+    User Interface/Design/Logo
+    Database Backups
+    Unit Tests
+    Admin Features:
+      Approve Public Goals
+    Home Page/Help Page/Getting Started
+    User Enhancements:
+      About Me
+      Location
+        Could be used for find nearby
+        probably best with facebook integration
+      Profile Pic
+      Mobile Number
+      Password Reset
+      Sign in with Facebook/Twitter/etc
+      Friendly URLs
+      User Nicknames
+      Private Users/Emails/Goals/Logs
+    Advertising
+    Capture Feature Requests
+    Email/Google Apps
+    User/Activity Verification?
+
+  Gamification:
+    badges/challenges/prizes
+      sponsors
+        free nicotine gum/patches
+        coupons/discounts
+          running shoes
+        entry fees
+          marathon/race
+    Goal points
+    user reputation:
+      upvote goals
+      edit goals
+      approve new public goals
+      look at stackoverflow model for badges/rep
+    How do I see another users activity
+    display top users:
+      for a given goal/goaltype
+      by number of logs
+      by reputation
+    side by side user comparison
+    trend analysis:
+      weekly report/email
+      reminders
+    recommended goals/products/communities/apps/users
+    auto increment goals if met for x weeks in a row
+
+  Social Interation:
+    Facebook
+      Create Fan Page
+      Allow Signin
+      Widget of Activity??
+      Badge Post to Users Wall
+      Goal Dare - Public shaming if don't meet goal
+    Twitter
+      Create account
+      Allow to tweet progress
+    Google+
+      Create page
+    Foursquare
+      Parse checkin data
+        gym
+        library
+        school
+
+  Motivation:
+    Daily Motivator
+    Links to other motivation sites
+      /r/getmotivated
+
+  Ease of Use:
+    One Click Log:
+      Picklist of all Goals - Enter Text & Save
+    Mobile Apps
+      phonegap
+    Text-to-Goal
+      twillio
+    Expose API
+      command line apps
+
+  API Integration (Services):
+    Each Goal can have many different services.
+      If a user elects a goal with a service, may be certain required fields that need to be captured
+    Code:
+      Github
+      Code Academy
+    Education:
+      Reading:
+        Goodreads
+      Learning a Language
+      Cooking
+    Travel
+    Hobby:
+      Flickr
+    Financial
+      Mint.com
+    Social:
+      Meetup.com
+      Dating:
+        OkCupid
+        Match
+    Health:
+      Exercise:
+      Quitting Smoking/Drinking
+      Losing Weight
+
