@@ -21,7 +21,7 @@ class LogsController < ApplicationController
     @log = UserGoal.find(params[:log][:user_goal_id]).logs.build(description: params[:log][:description],
                                                                activity_date: Date.today)
     @log.save
-    redirect_to user_goal_path(@log.user_goal)
+    redirect_to goal_path(@log.user_goal.goal)
   end
 
   def update

@@ -6,17 +6,21 @@
     <th class="center-text">Goal</th>
     <th class="center-text">Last 7 Days</th>
     <th class="center-text">All Time</th>
-    <th class="center-text">Action</th>
+    <% if logged_in_user? (@user) %>
+      <th class="center-text">Action</th>
+    <% end %>
   </tr>
 
 <% @user.user_goals.each do |user_goal| %>
   <tr>
-    <td class="center-text"><%= link_to user_goal.goal.name, user_goal_path(user_goal) %></td>
+    <td class="center-text"><%= link_to user_goal.goal.name, goal_path(user_goal.goal) %></td>
     <td class="center-text"><%= user_goal.recent_logs.size %></td>
     <td class="center-text"><%= user_goal.logs.size %></td>
-    <td class="center-text">
-      <%= link_to 'Log Activity', new_log_path(:user_goal_id => user_goal.id), class: "btn btn-small"%>
-    </td>
+    <% if logged_in_user? (@user) %>
+      <td class="center-text">
+        <%= link_to 'Log Activity', new_log_path(:user_goal_id => user_goal.id), class: "btn btn-small"%>
+      </td>
+    <% end %>
   </tr>
 <% end %>
 </table>
