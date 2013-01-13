@@ -2,7 +2,7 @@
 <h1>  <%= @goal.name %></h1> 
 
 <span style="float: right">
-  <% if subscribed? current_user %>
+  <% if subscribed? @goal %>
     <%= link_to 'My Activity', user_goal_path(user_goal_id(@goal)), class: "btn" %>
     <%= link_to 'Quit Goal', '#' , class: "btn" %>
   <% else %>
