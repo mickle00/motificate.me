@@ -11,7 +11,7 @@
 #
 
 class Log < ActiveRecord::Base
-  belongs_to :goal
+  belongs_to :user_goal
   attr_accessible :activity_date, :description
 
   def goal_name

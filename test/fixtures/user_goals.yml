@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user: 
+  goal: 
+  active: false
+  private: false
+
+two:
+  user: 
+  goal: 
+  active: false
+  private: false

@@ -1,0 +1,28 @@
+<%= form_for(@user_goal) do |f| %>
+  <% if @user_goal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user_goal.errors.count, "error") %> prohibited this user_goal from being saved:</h2>
+
+      <ul>
+      <% @user_goal.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Active %><br />
+    <%= f.check_box :active %>
+  </div>
+  <div class="field">
+    <%= f.label :Private %><br />
+    <%= f.check_box :private %>
+  </div>
+
+  <%= f.hidden_field :goal_id, :value => @user_goal.goal_id %>
+
+  <div class="actions">
+    <%= f.submit "Ship it" %>
+  </div>
+<% end %>

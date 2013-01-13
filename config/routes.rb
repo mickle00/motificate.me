@@ -1,9 +1,10 @@
 Goals::Application.routes.draw do
+  resources :user_goals
   resources :logs
   resources :goals
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  root :to => 'goals#index'
+  root :to => 'static_pages#home'
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'

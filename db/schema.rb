@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130112225224) do
+ActiveRecord::Schema.define(:version => 20130113043225) do
 
   create_table "goals", :force => true do |t|
     t.string   "name"
@@ -27,9 +27,22 @@ ActiveRecord::Schema.define(:version => 20130112225224) do
     t.date     "activity_date"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "user_goal_id"
   end
 
   add_index "logs", ["goal_id"], :name => "index_logs_on_goal_id"
+
+  create_table "user_goals", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "goal_id"
+    t.boolean  "active"
+    t.boolean  "private"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "user_goals", ["goal_id"], :name => "index_user_goals_on_goal_id"
+  add_index "user_goals", ["user_id"], :name => "index_user_goals_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
