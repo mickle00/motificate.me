@@ -9,7 +9,8 @@ class LogsController < ApplicationController
 
   def new
     @log = Log.new
-    @log['goal_id'] = params[:goal]
+    @log['user_goal'] = UserGoal.find(params[:user_goal_id])
+    @log['user_goal_id'] = params[:user_goal_id]
   end
 
   def edit
@@ -17,10 +18,10 @@ class LogsController < ApplicationController
   end
 
   def create
-    @log = Goal.find(params[:log][:goal]).logs.build(description: params[:log][:description],
-                                                      activity_date: Date.today)
+    @log = UserGoal.find(params[:log][:user_goal_id]).logs.build(description: params[:log][:description],
+                                                               activity_date: Date.today)
     @log.save
-    redirect_to goal_path(@log.goal)
+    redirect_to goal_path(@log.user_goal.goal)
   end
 
   def update

@@ -1,4 +1,4 @@
-<h1>My Goals</h1>
+<h1>Public Goals</h1>
 
 <div style="padding-bottom: 10px; float: left">
   <%= link_to 'New Goal', new_goal_path, class: "btn" %>
@@ -6,26 +6,26 @@
 
 <table class="table table-striped table-bordered">
   <tr>
-    <th class="center-text">Name</th>
     <th class="center-text">Goal</th>
-    <th class="center-text">Last 7 Days</th>
-    <th class="center-text">All Time</th>
-    <th class="center-text">Status</th>
+    <th class="center-text">Participants</th>
+    <th class="center-text">Activities Logged</th>
     <th class="center-text">Action</th>
   </tr>
 
 <% @goals.each do |goal| %>
   <tr>
     <td class="center-text"><%= link_to goal.name, goal %></td>
-    <td class="center-text">
-      <%= pluralize(goal.count, 'time') %>  <%= goal.frequency.downcase %>
-    </td>
-    <td class="center-text"><%= goal.last_7_days_logs.size %></td>
+    <td class="center-text"><%= goal.users.size %></td>
     <td class="center-text"><%= goal.logs.size %></td>
-    <td class="center-text"><%= number_to_percentage(goal.percent_goal_completed, :precision => 2) %></td>
-    <td class="center-text">
-      <%= link_to 'Log Activity', new_log_path(:goal => goal), class: "btn btn-small"%>
+    <% if subscribed? goal %>
+      <td class="center-text">
+        <%= link_to 'Show', user_goal_path(user_goal_id(goal)), class: "btn btn-small"%>
       </td>
+    <% else %>
+      <td class="center-text">
+        <%= link_to 'Do it!', new_user_goal_path(:goal_id => goal.id), class: "btn btn-small"%>
+      </td>
+    <% end %>
   </tr>
 <% end %>
 </table>
