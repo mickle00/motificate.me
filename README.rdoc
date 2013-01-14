@@ -54,6 +54,9 @@ TODO:
     Capture Feature Requests
     Email/Google Apps
     User/Activity Verification?
+    Amazon S3
+    User Generated Content
+      need verification
 
   Gamification:
     badges/challenges/prizes
